@@ -5,6 +5,8 @@ import AddTask from './AddTask';
 import Today from './Today';
 import Past from './Past';
 import Future from './Future.js';
+import Notes from './Notes';
+
 
 
 function App() {
@@ -36,15 +38,77 @@ function App() {
     }
 
 
-  return (
 
-        <div className="Container">
-            <AddTask tasksList={tasks}/>
-            {/* <DisplayTasks key={Math.floor(Math.random() * 100000000)} tasksList={tasks} toggleComplete={toggleComplete}/> */}
-            <Today  key={Math.floor(Math.random() * 100000000)} tasksList={tasks}  toggleComplete={toggleComplete}/>
-            <Past  key={Math.floor(Math.random() * 100000000)} tasksList={tasks}  toggleComplete={toggleComplete}/>
-            <Future   key={Math.floor(Math.random() * 100000000)} tasksList={tasks}  toggleComplete={toggleComplete}/>
-        </div> 
+    const [showToday, setShowToday] = useState(true);
+    const [showPast, setShowPast] = useState(false);
+    const [showFuture, setShowFuture] = useState(false);
+    const [showNotes, setShowNotes] = useState(false);
+
+    function showHideToday () {
+        // setShowToday(!showToday);
+        setShowToday(true);
+        setShowPast(false);
+        setShowFuture(false);
+        setShowNotes(false);
+    };
+
+    function showHidePast () {
+        setShowPast(true);
+        setShowToday(false);
+        setShowFuture(false);
+        setShowNotes(false);
+    };
+
+    function showHideFuture () {
+        setShowFuture(true);
+        setShowToday(false);
+        setShowPast(false);
+        setShowNotes(false);
+    };
+
+    function showHideNotes () {
+        setShowNotes(true);
+        setShowFuture(false);
+        setShowToday(false);
+        setShowPast(false);
+    };
+
+
+      
+  return (
+        <>
+            
+            <div className="sideNav">
+                <ul>
+                    <li  onClick={showHideToday}>Today</li>
+                    <li  onClick={showHideFuture}>Future</li>
+                    <li  onClick={showHidePast}>Past</li>
+                    <li  onClick={showHideNotes}>Notes</li>
+
+                </ul>
+            </div>
+            <div className="mainContent">
+                <AddTask tasksList={tasks}/>
+
+
+                {showToday ? <Today   key={Math.floor(Math.random() * 100000000)} tasksList={tasks}  toggleComplete={toggleComplete}/>
+                        : null
+                }
+
+                {showPast ? <Past   key={Math.floor(Math.random() * 100000000)} tasksList={tasks}  toggleComplete={toggleComplete}/>
+                        : null
+                }
+
+                {showFuture ? <Future   key={Math.floor(Math.random() * 100000000)} tasksList={tasks}  toggleComplete={toggleComplete}/>
+                        : null
+                }
+
+                {showNotes ? <Notes   key={Math.floor(Math.random() * 100000000)} />
+                        : null
+                }
+            </div>
+        </>
+        
 
 
   );

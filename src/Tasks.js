@@ -12,7 +12,7 @@ export default function Tasks({task, toggleComplete}) {
             <td className="task">{task.task}</td>
             {/* <td className="taskDate">{task.date}</td> */}
             <td className="taskBox">
-                <input type="checkbox" 
+                <input type="checkbox"  className="checkbox-round"
                 checked={task.completed === true ? true: false}  
                 disabled={task.completed === true ? true: false} 
                 onChange={handleChangeChecked}/>

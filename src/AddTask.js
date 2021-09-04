@@ -24,16 +24,15 @@ export default function AddTask({tasksList}) {
         const newTask = taskRef.current.value;
         const taskDate = dateRef.current.value;
 
-        if(newTask === "") return;
-        setTasks(prevTasks => {
-          return [...prevTasks, {
-              id: Math.floor(Math.random() * 100000000), 
+        const newTasks = [...tasks,
+            {
+              id: Math.floor(Math.random() * 100000000),
               task: newTask, 
               date: taskDate,
               completed:false
-            }]
-        });
-        taskRef.current.value = null;
+            }];
+        setTasks(newTasks);
+      
     }
 
     useEffect(() => {
