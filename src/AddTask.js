@@ -6,19 +6,19 @@ export default function AddTask({tasksList}) {
     const taskRef = useRef();
     const dateRef = useRef();
 
-    function getDT(){
-        var today = new Date();
-        var month = (1+today.getMonth());
+    // function getDT(){
+    //     var today = new Date();
+    //     var month = (1+today.getMonth());
     
-        if(today.getMonth() <10){
-          month = "0"+(1+today.getMonth());
-        }
+    //     if(today.getMonth() <10){
+    //       month = "0"+(1+today.getMonth());
+    //     }
     
-        var date = today.getFullYear() + "-" + month + "-" + today.getDate();
+    //     var date = today.getFullYear() + "-" + month + "-" + today.getDate();
     
-        return date;
+    //     return date;
           
-      }
+    //   }
 
     function addTask(e){
         const newTask = taskRef.current.value;
@@ -31,6 +31,7 @@ export default function AddTask({tasksList}) {
               date: taskDate,
               completed:false
             }];
+            console.log(taskDate);
         setTasks(newTasks);
       
     }
@@ -38,13 +39,13 @@ export default function AddTask({tasksList}) {
     useEffect(() => {
         return window.localStorage.setItem('Tasks', JSON.stringify(tasks));
     }, [tasks]);
-
+    console.log(dateRef);
 
     return (
         <div className="AddTask">
             <form onSubmit={addTask}>
                 <input type="text" ref={taskRef} placeholder="Add Task"/>
-                <input type="date" ref={dateRef} />
+                <input type="date" ref={dateRef}  placeholder="Your Date"  onfocus="(this.type='date')" onblur="(this.type='text')"/>
                 <button className="btn">Add Task</button>
             {/* <button className="btn" onClick={addTask}>Add transaction</button> */}
             </form>

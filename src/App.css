@@ -115,20 +115,29 @@ li:hover{
 
 .AddTask button{
   margin: 4px 4px 4px 4px;
-  height: 30px;
-  width: 90px;
-  border-radius: 8%;
+  height:50px;
+  width:15%;
+  border-radius: 15px;
   border-style: none;
 }
 
 input[type='text'],
 input[type='date'] {
   border: 1px solid #dedede;
-  border-radius: 2px;
   display: block;
   font-size: 16px;
   padding: 10px;
   height: 30px;
+}
+
+input[type='text'] {
+  border-radius: 15px 0px 0px 15px;
+  width:40%;
+}
+
+input[type='date'] {
+  border-radius: 0px 15px 15px 0px;
+  width:15%;
 }
 
 
@@ -137,28 +146,29 @@ input[type='date'] {
 
 table{
   width: 50%;
-  margin-left: 80px;
+  /* margin-left: 80px; */
   height: 50px;
-  border: 1px solid rgb(97, 180, 15);
+  /* border: 1px solid rgb(97, 180, 15); */
 }
 
 tr{
   width: 100%;
   color: #000;
-  
 }
 
 td{
-  /* width: 100%; */
-  border: 1px solid rgb(180, 15, 29);
+  border-bottom: 1px solid rgb(236, 234, 222);
 }
 
+
+
 .task{
-  width: 50%;
+  width: 80%;
 }
 
 .taskDate{
-  width: 20%;
+  width: 5%;
+  text-align: left;
 }
 
 .taskComplete{
@@ -188,8 +198,8 @@ td{
 
 
 .checkbox-round {
-  width: 1.3em;
-  height: 1.3em;
+  width: 1.4em;
+  height: 1.4em;
   background-color: rgb(255, 255, 255);
   border-radius: 50%;
   vertical-align: middle;
@@ -206,5 +216,11 @@ td{
   background-color: #66bb6a;
 
 
+}
+
+
+
+span{
+  margin-left:6px;
 }
 
